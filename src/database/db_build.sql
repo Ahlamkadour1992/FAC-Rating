@@ -14,14 +14,14 @@ CREATE TABLE campuses (
   id SERIAL PRIMARY KEY,
   location VARCHAR(100),
   cohort_name VARCHAR(100),
-  student_id INTEGER REFERENCES students(id) 
+  rate INTEGER NOT NULL CHECK (rate BETWEEN 0 AND 10),
+  student_id INTEGER REFERENCES students(id)
 );
 
 CREATE TABLE rating (
   id SERIAL PRIMARY KEY,
   rate INTEGER NOT NULL CHECK (rate BETWEEN 0 AND 10),
-  FOREIGN KEY (cohortName) REFERENCES campuses(cohort_name),
-  FOREIGN KEY (studentId) REFERENCES students(id)
+  studentrate INTEGER REFERENCES campuses(student_id)
 );
 
 INSERT INTO students (first_name, last_name) VALUES ('Ahlam', 'Kadour');
