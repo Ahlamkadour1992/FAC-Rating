@@ -11,7 +11,21 @@
    <h2 class="scndHead"> Cohorts Rating </h2>
    <h3 class="headSen">Founders & Coders is a community for coding bootcamps. <br> To Learn more about founders and coders <a href="https://www.foundersandcoders.com/" target="_blank">click here.</a></h3>
 <h4>As a student of founders and coders now you can enter your details and give your cohort rating between 0 and 10</h4>
-    <form class="form" id="form" action="/postStudentData" method="post">
+<form id="registerForm" novalidate>
+    <h1>Registration</h1>
+    <label for="email">Email:
+      <input name="email" id="email" required/>
+    </label>
+    <label for="password">Password:
+      <input name="password" id="password" required/>
+    </label>
+    <label for="confirmPassword">Confirm password:
+      <input name="confirmPassword" id="confirmPassword" required/>
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+  
+    <form class="form" id="form" action="/postStudentData" method="POST">
       <div class="f.name" id="f.name">
         <label for="first_name">First Name:</label>
         <input type="text" id="F.name" name="first_name" value="">

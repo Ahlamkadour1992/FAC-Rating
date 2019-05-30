@@ -40,23 +40,23 @@ const handlerPublic = ((request, response, url) => {
   });
 });
 const handlerGetDB = (response) => {
-    getUserData((err, students) => {
-      console.log('this is the students : ', students);
+    getUserData((err, users) => {
+      console.log('this is the users in the handlerGetDB : ', users);
       if (err) throw err;
       response.writeHead(200, { 'Content-Type': 'application/json' });
-      response.end(JSON.stringify(students));
+      response.end(JSON.stringify(users));
     });
 };
 
 const handlerPostDB = ((request, response) => {
-  console.log('this is the request url: ', request.url);
+  console.log('this is the request url in handlerPostDB : ', request.url);
   let data = '';
   request.on('data', chunk => {
     data += chunk;
-    console.log('this is the data after chunk : ', data);//.split('&');
+    console.log('this is the data after chunk : ', data);
   });
   request.on('end', () => {
-    // console.log('the data', data);
+    console.log('the data', data);
     const parseFirstName = querystring.parse(data).first_name;
     const parseLastName = querystring.parse(data).last_name;
     const parseLocation = querystring.parse(data).location;
